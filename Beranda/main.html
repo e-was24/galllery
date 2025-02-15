@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main Galeri</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="allcov">
+        <div class="main_Gl" id="main_Gl">
+            <div class="imgMain">
+              <img id="Img1" src="img/riskaaa.jpeg" alt="gagal" />
+            </div>
+            <div class="imgMain">
+              <img id="Img1" src="img/riskaa.jpeg" alt="gagal" />
+            </div>
+          </div>
+          <div class="video-card">
+              <div class="video-container">
+                  <video id="video" src="img/Riskaaaa.mp4" autoplay muted loop></video>
+              </div>
+              <div class="card-content">
+                  <h2>Watch Video</h2>
+                  <p>14 / 07 / 24 <span>21.44</span> .</p>
+                  <button id="toggleButton">Pause Video</button>
+              </div>
+          </div>
+    </div>
+    <script>
+        const videoElement = document.getElementById('video');
+        const toggleButton = document.getElementById('toggleButton');
+        
+        toggleButton.addEventListener('click', () => {
+            if (videoElement.paused) {
+                videoElement.play();
+                toggleButton.textContent = 'Pause Video';
+            } else {
+                videoElement.pause();
+                toggleButton.textContent = 'Play Video';
+            }
+        });
+        
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script>
+    // Fungsi untuk memeriksa password
+    function checkPassword() {
+      var userPass = document.getElementById('UserPass').value;
+      var correctPassword = 'password123'; // Password yang benar
+      var minLength = 8; // Panjang minimal password
+      var maxLength = 16; // Panjang maksimal password
+
+      // Periksa panjang password
+      if (userPass.length < minLength || userPass.length > maxLength) {
+        alert('Password harus memiliki panjang antara ' + minLength + ' dan ' + maxLength + ' karakter.');
+        return;
+      }
+
+      // Kriteria password (mengandung huruf besar, huruf kecil, angka, dan simbol)
+      var upperCase = /[A-Z]/;
+      var lowerCase = /[a-z]/;
+      var numbers = /[0-9]/;
+      var specialChars = /[!@#$%^&*(),.?":{}|<>]/;
+
+      if (!upperCase.test(userPass) || !lowerCase.test(userPass) || !numbers.test(userPass) || !specialChars.test(userPass)) {
+        alert('Password harus mengandung huruf besar, huruf kecil, angka, dan simbol.');
+        return;
+      }
+
+      // Cek apakah password benar
+      if (userPass === correctPassword) {
+        // Jika password benar, buka halaman baru
+        window.location.href = 'halaman-baru.html'; // Ganti dengan URL halaman tujuan
+      } else {
+        // Jika password salah
+        alert('Password salah!');
+      }
+    }
+
+    // Tambahkan event listener ke tombol "Masuk"
+    document.getElementById('Open-btn').addEventListener('click', checkPassword);
+  </script>
+</head>
+<body>
+
+<div class="content">
+  <h4 class="secTitle">Elan<span>Galery</span>.</h4>
+  <input type="password" id="UserPass" placeholder="Masukan password" />
+  <input type="submit" id="Open-btn" value="Masuk" />
+</div>
+
+</body>
+</html>
